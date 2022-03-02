@@ -39,12 +39,12 @@ public class PlayerCOntroller : MonoBehaviour
         {
             if (hitinfo.collider.tag == "Cube")
             {
-                Debug.Log("Collided with " + hitinfo.collider.gameObject.name);
+                //Debug.Log("Collided with " + hitinfo.collider.gameObject.name);
                 Lempty = false;
             }
             else if (hitinfo.collider.tag == "Plane")
             {
-                Debug.Log("Collided with " + hitinfo.collider.gameObject.name);
+                //Debug.Log("Collided with " + hitinfo.collider.gameObject.name);
                 Lempty = true;
             }
         }
@@ -60,12 +60,12 @@ public class PlayerCOntroller : MonoBehaviour
         {
             if (hitinfo.collider.tag == "Cube")
             {
-                Debug.Log("Collided with " + hitinfo.collider.gameObject.name);
+                // Debug.Log("Collided with " + hitinfo.collider.gameObject.name);
                 Rempty = false;
             }
             else if (hitinfo.collider.tag == "Plane")
             {
-                Debug.Log("Collided with " + hitinfo.collider.gameObject.name);
+                //Debug.Log("Collided with " + hitinfo.collider.gameObject.name);
                 Rempty = true;
             }
         }
@@ -81,12 +81,12 @@ public class PlayerCOntroller : MonoBehaviour
         {
             if (hitinfo.collider.tag == "Cube")
             {
-                Debug.Log("Collided with " + hitinfo.collider.gameObject.name);
+                // Debug.Log("Collided with " + hitinfo.collider.gameObject.name);
                 DownEmpty = false;
             }
            else if (hitinfo.collider.tag == "Plane")
             {
-                Debug.Log("Collided with " + hitinfo.collider.gameObject.name);
+                // Debug.Log("Collided with " + hitinfo.collider.gameObject.name);
                 DownEmpty = true;
             }
         }
@@ -101,33 +101,34 @@ public class PlayerCOntroller : MonoBehaviour
         {
             if (hitinfo.collider.tag == "Cube")
             {
-                Debug.Log("Collided with " + hitinfo.collider.gameObject.name);
+                //Debug.Log("Collided with " + hitinfo.collider.gameObject.name);
                 UpEmpty = false;
             }
             else if (hitinfo.collider.tag == "Plane")
             {
-                Debug.Log("Collided with " + hitinfo.collider.gameObject.name);
+                // Debug.Log("Collided with " + hitinfo.collider.gameObject.name);
                 UpEmpty = true;
             }
         }
     }
     void Player_Movement()
     {
-        if (Input.GetKey(KeyCode.RightArrow) && Rempty == false )
+        if (Input.GetKeyDown(KeyCode.RightArrow) && Rempty == false )
         {
-            transform.Translate(Vector3.right * Time.deltaTime * speed);
+            transform.Translate(new Vector3(2, 0, 0));
         }
-        if (Input.GetKey(KeyCode.LeftArrow) && Lempty == false)
+        if (Input.GetKeyDown(KeyCode.LeftArrow) && Lempty == false)
         {
-            transform.Translate(Vector3.left * Time.deltaTime * speed);
+            transform.Translate(new Vector3(-2, 0, 0));
         }
-        if (Input.GetKey(KeyCode.UpArrow) && UpEmpty == false)
+        if (Input.GetKeyDown(KeyCode.UpArrow) && UpEmpty == false)
         {
-            transform.Translate(Vector3.forward  * Time.deltaTime * speed);
+            transform.Translate(new Vector3(0, 0, 2));
         }
-        if (Input.GetKey(KeyCode.DownArrow) && DownEmpty == false)
+        if (Input.GetKeyDown(KeyCode.DownArrow) && DownEmpty == false)
         {
-            transform.Translate(Vector3.back * Time.deltaTime * speed);
+            transform.Translate(new Vector3(0, 0, -2));
         }
     }
+    
 }
